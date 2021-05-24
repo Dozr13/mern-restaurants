@@ -1,7 +1,71 @@
-import React from "react";
+/** @format */
 
-const Login = () => {
-  return <div>Login Component</div>;
+import React, { useState } from 'react';
+
+const Login = (props) => {
+	const initialUserState = {
+		name: '',
+		id: '',
+	};
+
+	const [user, setUser] = useState(initialUserState);
+
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setUser({ ...user, [name]: value });
+	};
+
+	const login = () => {
+		props.login(user);
+		props.history.push('/');
+	};
+
+	return (
+		<div
+			className="container submit-form"
+			style={{
+				height: '93vh',
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+			}}
+		>
+			<div>
+				<div className="form-group">
+					<label htmlFor="user">Username: </label>
+					<input
+						type="text"
+						className="form-control"
+						id="name"
+						required
+						value={user.name}
+						onChange={handleInputChange}
+						name="name"
+					/>
+				</div>
+				<div className="form-group">
+					<label htmlFor="id">ID: </label>
+					<input
+						type="text"
+						className="form-control"
+						id="id"
+						required
+						value={user.id}
+						onChange={handleInputChange}
+						name="id"
+					/>
+				</div>
+
+				<button
+					onClick={login}
+					className="btn btn-success"
+					style={{ width: '100%', marginTop: 20 }}
+				>
+					Login
+				</button>
+			</div>
+		</div>
+	);
 };
 
 export default Login;

@@ -30,7 +30,7 @@ const Restaurant = (props) => {
 	}, [props.match.params.id]);
 
 	const deleteReview = (reviewId, i) => {
-		RestaurantDataService.deleteReview(reviewId)
+		RestaurantDataService.deleteReview(reviewId, props.user.id)
 			.then((res) => {
 				setRestaurant((prevState) => {
 					prevState.reviews.splice(i, 1);
