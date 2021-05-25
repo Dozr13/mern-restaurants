@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+.prettierrc.json/
+.eslintrc.json/
+
 /.pnp
 .pnp.js
 
