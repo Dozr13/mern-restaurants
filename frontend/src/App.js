@@ -23,7 +23,10 @@ function App() {
 
 	return (
 		<div>
-			<nav className="navbar navbar-expand navbar-dark bg-dark">
+			<nav
+				className="navbar navbar-expand navbar-dark bg-dark"
+				style={{ paddingLeft: 50 }}
+			>
 				<a href="/restaurants" className="navbar-brand">
 					Restaurant Reviews
 				</a>
